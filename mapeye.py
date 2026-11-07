@@ -244,7 +244,7 @@ def main():
 				print(G + '[+]' + C + ' Browser    : ' + W + var_browser)
 				print(G + '[+]' + C + ' Public IP  : ' + W + var_ip)
 
-				rqst = requests.get('http://free.ipwhois.io/json/{}'.format(var_ip))
+				rqst = requests.get('http://ipwho.is{}'.format(var_ip))
 				sc = rqst.status_code
 
 				if sc == 200:
@@ -254,8 +254,8 @@ def main():
 					var_country = str(data['country'])
 					var_region = str(data['region'])
 					var_city = str(data['city'])
-					var_org = str(data['org'])
-					var_isp = str(data['isp'])
+					var_org = str(data['connection']['org'])
+					var_isp = str(data['connection']['isp'])
 
 					row.append(var_continent)
 					row.append(var_country)
